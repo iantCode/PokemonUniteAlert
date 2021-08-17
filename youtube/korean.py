@@ -3,8 +3,12 @@ from bs4 import BeautifulSoup
 
 def getYoutubeKor():
     URL = 'https://www.youtube.com/user/PokemonKoreaInc/videos'
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
 
-    driver = webdriver.Edge(executable_path='D:\\Project\\uniteWebCrawler\\driver\\msedgedriver.exe')
+    driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=chrome_options)
     driver.get(url=URL)
     driver.implicitly_wait(time_to_wait=10)
 
